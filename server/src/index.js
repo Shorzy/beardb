@@ -17,7 +17,7 @@ const dbName = process.env.BEARDB_DB_NAME || 'beardb';
 dbUtil.createIfNotExisting(dbConn, dbName)
 .then((db) => {
   updateViews(db).then(() => {
-    const store = createStore(store);
+    const store = createStore(db);
     const app = createApi(store);
 
     const PORT = process.env.PORT || process.env.VCAP_APP_PORT || 3000;
