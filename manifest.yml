@@ -1,0 +1,8 @@
+---
+name: beardb
+buildpack: https://github.com/cloudfoundry/buildpack-nodejs.git
+instances: 1
+memory: 100M
+host: beardb
+services:
+- beardb-cloudantNoSQLDB
