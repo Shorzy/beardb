@@ -11,7 +11,7 @@ describe('the store', () => {
     insertSpy = sinon.spy();
     const db = {
       insert: insertSpy
-    }
+    };
     store = createStore(db);
   });
 
