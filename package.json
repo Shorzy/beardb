@@ -10,7 +10,7 @@
     "build": "webpack",
     "build:watch": "webpack --watch",
     "start": "node server/src",
-    "test": "mocha -- recursive client/test server/test --compilers js:babel-core/register",
+    "test": "mocha --recursive client/test server/test --compilers js:babel-core/register",
     "test:watch": "mocha --recursive client/test server/test --watch --compilers js:babel-core/register",
     "lint": "eslint server client"
   },
