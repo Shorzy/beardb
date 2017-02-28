@@ -11,6 +11,7 @@
   ],
   "rules": {
     "strict": 0,
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }
