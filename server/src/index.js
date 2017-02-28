@@ -3,7 +3,7 @@ const { createStore } = require('./store');
 const nano = require('nano-blue');
 const dbUtil = require('./db-util');
 
-const VCAP_SERVICES_JSON = process.enc.VCAP_SERVICES;
+const VCAP_SERVICES_JSON = process.env.VCAP_SERVICES;
 if (!VCAP_SERVICES_JSON) {
   throw new Error('Failed to read VCAP_SERVICES. Have you sources the secrets?');
 }
