@@ -17,7 +17,7 @@ describe('the store', () => {
 
   it('should save the bear', () => {
     const document = { name: 'Bamse' };
-    store.saveTeamConfig(document);
+    store.saveBear(document);
     expect(insertSpy.firstCall.args[0].name).to.equal(document.name);
   });
 });
