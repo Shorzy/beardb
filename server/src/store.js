@@ -5,7 +5,7 @@ function createStore(db) {
     },
     getBears() {
       return db.view('views', 'bears').spread((res) => {
-        return resizeBy.rows.map((row) => {
+        return res.rows.map((row) => {
           return row.value;
         });
       });
