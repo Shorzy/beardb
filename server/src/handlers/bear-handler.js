@@ -3,7 +3,7 @@ function createBearHandler(store) {
     save(req, res) {
       const bearDoc = req.body;
       bearDoc.type = 'bear';
-      store.saveBear(bear);
+      store.saveBear(bearDoc);
       res.send();
     },
     get(req, res) {

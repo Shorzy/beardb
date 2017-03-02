@@ -15,6 +15,15 @@ const cloudantUrl = vcapServices.cloudantNoSQLDB[0].credentials.url;
 const dbConn = nano(cloudantUrl);
 const dbName = process.env.BEARDB_DB_NAME || 'beardb';
 
+const updateViews = (db) => {
+  console.log('Updating views...');
+  return db.head('_design/views').spread((err, res) => {
+    db.insert(Object.assign({}, dbUtil.getDatabaseViews(), { _rev: res.etag.replace(/"/g, '') }));
+  }).catch(() => {
+    db.insert(dbUtil.getDatabaseViews());
+  });
+};
+
 dbUtil.createIfNotExisting(dbConn, dbName)
 .then((db) => {
   updateViews(db).then(() => {
@@ -30,11 +39,3 @@ dbUtil.createIfNotExisting(dbConn, dbName)
   });
 });
 
-const updateViews = (db) => {
-  console.log('Updating views...');
-  return db.head('_design/views').spread((err, res) => {
-    db.insert(Object.assign({}, dbUtil.getDatabaseViews(), { _rev: res.etag.replace(/"/g, '') }));
-  }).catch(() => {
-    db.insert(dbUtil.getDatabaseViews());
-  });
-};

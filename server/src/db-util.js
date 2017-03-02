@@ -1,3 +1,5 @@
+/*eslint-disable*/
+
 function createIfNotExisting(dbConn, dbName) {
   return dbConn.db.get(dbName)
   .then(() => dbConn.use(dbName))

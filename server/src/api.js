@@ -16,4 +16,4 @@ function createApi(store) {
   return app;
 }
 
-module.exports = {createApi };
+module.exports = { createApi };
